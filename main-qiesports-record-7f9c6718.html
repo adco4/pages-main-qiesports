@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企鹅体育 · 轻量导航介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fbf7f0;
+            font-family: "Noto Serif SC", "Source Han Serif CN", "华文楷体", "KaiTi", Georgia, serif;
+            color: #3e3a35;
+            line-height: 1.7;
+            padding: 0 1.2rem;
+        }
+
+        .page-wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2.2rem 0 3.5rem;
+        }
+
+        /* 顶栏导航 */
+        .top-nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 0 1rem;
+            border-bottom: 1px solid #dcd5cb;
+            margin-bottom: 2.8rem;
+        }
+
+        .logo-area {
+            font-weight: 500;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            color: #3f3a33;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5a554d;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            border-bottom: 1px dotted transparent;
+        }
+
+        .nav-links a:hover {
+            color: #b77a3b;
+            border-bottom: 1px dotted #b77a3b;
+        }
+
+        /* hero 区 */
+        .hero {
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 0.6rem;
+            color: #2d2822;
+        }
+
+        .hero .subhead {
+            font-size: 1.1rem;
+            color: #6d665c;
+            border-left: 4px solid #c09464;
+            padding-left: 1rem;
+            margin: 1rem 0 1.6rem;
+            font-style: normal;
+        }
+
+        .hero p {
+            font-size: 1.02rem;
+            max-width: 85%;
+        }
+
+        /* 引用 / 提示框 */
+        .notice-box {
+            background: #f2ede4;
+            border-left: 5px solid #bb8b5c;
+            padding: 1.2rem 1.6rem;
+            margin: 2rem 0 2.4rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.98rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .notice-box strong {
+            color: #7d5f3e;
+        }
+
+        /* 场景网格 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin: 2.6rem 0 2.2rem;
+        }
+
+        .scene-card {
+            background: #fffffffa;
+            border-radius: 14px;
+            padding: 1.6rem 1.2rem 1.8rem;
+            box-shadow: 0 4px 10px rgba(60, 50, 35, 0.04);
+            border: 1px solid #e6ded2;
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+
+        .scene-card:hover {
+            box-shadow: 0 8px 18px rgba(70, 55, 35, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .scene-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #4a4138;
+        }
+
+        .scene-card p {
+            font-size: 0.96rem;
+            color: #5d554b;
+        }
+
+        /* 说明 / FAQ 摘要 */
+        .faq-summary {
+            margin: 2.8rem 0 1.8rem;
+            background: #f6f1e9;
+            padding: 1.6rem 1.8rem;
+            border-radius: 16px;
+            border: 1px solid #e1d6c8;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #3d352d;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item dt {
+            font-weight: 500;
+            color: #5f4f3a;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-item dd {
+            margin-left: 0.6rem;
+            font-size: 0.96rem;
+            color: #554e45;
+        }
+
+        .faq-item dd a {
+            color: #8d6b44;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #c9b094;
+        }
+
+        .faq-item dd a:hover {
+            color: #a97540;
+            text-decoration-color: #b77a3b;
+        }
+
+        /* 内嵌链接句子 */
+        .inline-link-sentence {
+            margin: 1.2rem 0 1rem;
+            font-size: 1rem;
+            background: #f4efe7;
+            padding: 0.8rem 1.4rem;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        .inline-link-sentence a {
+            color: #7f613f;
+            font-weight: 500;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #cbb297;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #dbd2c5;
+            margin: 2rem 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: #898076;
+            text-align: center;
+            border-top: 1px solid #ddd6ca;
+            padding-top: 1.8rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            .hero p {
+                max-width: 100%;
+            }
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .notice-box {
+                padding: 1rem;
+            }
+            .faq-summary {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="logo-area">◈ 企鹅体育 · 导航</div>
+        <div class="nav-links">
+            <a href="#">介绍</a>
+            <a href="#">场景</a>
+            <a href="#">说明</a>
+            <a href="#">更多</a>
+        </div>
+    </nav>
+
+    <!-- hero 介绍 -->
+    <section class="hero">
+        <h1>从社区到赛事</h1>
+        <div class="subhead">体育内容的轻量枢纽 · 知识型导读</div>
+        <p>长期以来，体育爱好者需要的不只是比分，更是有温度的讨论空间与信息聚合。作为以体育内容为核心的平台，<strong>企鹅体育</strong>试图弥合赛事直播、社区互动与深度内容之间的缝隙——这里不只有职业赛场，也容纳草根视角与战术拆解。</p>
+    </section>
+
+    <!-- 引用提示框 -->
+    <div class="notice-box">
+        <strong>◆ 导向说明</strong> —— 本文是对平台特征的轻量梳理，不构成产品承诺。所有观点基于公开信息与社区观察，旨在为感兴趣的用户提供一份背景参考。
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scene-grid">
+        <div class="scene-card">
+            <h3>🏀 赛事伴随</h3>
+            <p>一边看球一边讨论，是数字时代的新观赛习惯。从 NBA 到 CBA，从欧冠到本土联赛，实时聊天与数据看板让每场比赛都变成可参与的集体体验。弹幕、预测、实时评分解读，形成独特的第二现场。</p>
+        </div>
+        <div class="scene-card">
+            <h3>🎮 泛体育内容</h3>
+            <p>体育不止于传统项目。电竞、街头运动、极限挑战、健身科普……平台的多元化内容板块收纳了更广泛的“运动”定义。用户可依兴趣订阅专栏或主播，形成个人化的信息流。</p>
+        </div>
+        <div class="scene-card">
+            <h3>📊 数据与复盘</h3>
+            <p>对于战术爱好者与深度观众，赛后复盘、球员数据、高阶统计是不可或缺的模块。社区内沉淀了大量分析帖与视频拆解，帮助理解比赛背后的逻辑，而非只看结果。</p>
+        </div>
+    </div>
+
+    <!-- 常见说明 / FAQ 摘要 -->
+    <section class="faq-summary">
+        <h2>常见要点 · 简明说明</h2>
+        <dl class="faq-item">
+            <dt>平台定位是什么？</dt>
+            <dd>以体育内容为核心的社区型平台，涵盖直播、图文、短视频、互动讨论。并非单纯的赛事转播工具，更强调用户生产内容与圈层交流。</dd>
+        </dl>
+        <dl class="faq-item">
+            <dt>内容来源与版权？</dt>
+            <dd>部分赛事信号来自授权合作，社区内容则由用户创作或转载（标注来源）。具体版权信息以站内公告及相应协议为准。</dd>
+        </dl>
+        <dl class="faq-item">
+            <dt>如何快速了解？</dt>
+            <dd>你可以直接访问 <a href="https://main-qiesports.com">企鹅体育</a> 浏览当前热门板块，或关注体育分类下的专栏作者，从中获取更有针对性的内容推荐。</dd>
+        </dl>
+        <dl class="faq-item">
+            <dt>与其他平台的区别？</dt>
+            <dd>更注重轻量互动与话题延展，降低参与门槛，同时保留深度内容的入口。首页信息流兼顾热度与时效，但不会过度推送商业化内容。</dd>
+        </dl>
+    </section>
+
+    <!-- 句子中自然嵌入链接 -->
+    <div class="inline-link-sentence">
+        ▲ 如果你希望从单一入口开始探索，<a href="https://main-qiesports.com">企鹅体育</a> 的首页聚合了当前最受关注的赛事与社区讨论话题。
+    </div>
+
+    <hr>
+
+    <p style="font-size:0.95rem; color:#5a5248;">
+        以上梳理基于平台公开特性与社区常见认知，具体功能与界面以实际站点为准。体育内容的魅力在于分享与争论，企鹅体育提供了这样一个容器，但内容的价值终究由参与者共同塑造。
+    </p>
+
+    <footer>
+        <span>内容参考 · 轻量导航介绍</span>  &nbsp;|&nbsp;  非官方页面  &nbsp;|&nbsp;  仅供信息整合
+    </footer>
+
+</div>
+</body>
+</html>
